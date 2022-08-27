@@ -2,23 +2,23 @@ import React from "react";
 import { useState, useContext, useEffect } from "react";
 import FeedbackContext from "../context/FeedbackContext";
 
-function RatingSelect({select}) {
+function RatingSelect({ select }) {
   const [selected, setSelected] = useState(10);
 
   const handleChange = (e) => {
     //change string to number with +
-    setSelected(+e.currentTarget.value)
-    select(+e.currentTarget.value)
-}
-// const radioButtons = [1,2,3,4,5,6,7,8,9,10]
+    setSelected(+e.currentTarget.value);
+    select(+e.currentTarget.value);
+  };
+  // const radioButtons = [1,2,3,4,5,6,7,8,9,10]
 
-const {  feedbackEdit } = useContext(FeedbackContext);
+  const { feedbackEdit } = useContext(FeedbackContext);
 
-useEffect(() => {
-    setSelected(feedbackEdit.item.rating)
-},[feedbackEdit])
+  useEffect(() => {
+    setSelected(feedbackEdit.item.rating);
+  }, [feedbackEdit]);
 
-return (
+  return (
     <ul className='rating'>
       <li>
         <input
@@ -131,7 +131,7 @@ return (
         <label htmlFor='num10'>10</label>
       </li>
     </ul>
-  )
+  );
 }
 
-export default RatingSelect
+export default RatingSelect;
